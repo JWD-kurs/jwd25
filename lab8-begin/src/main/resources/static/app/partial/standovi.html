@@ -1,0 +1,37 @@
+<div ng-controller="standoviCtrl">
+	
+	<form>
+		<label for="zakupac">Zakupac</label>
+		<input type="text" id="zakupac" ng-model="noviStand.zakupac">
+		<br/>
+		<label for="povrsina">Povrsina</label>
+		<input type="text" id="povrsina" ng-model="noviStand.povrsina">
+		<br/>
+		<select ng-change="changeHappened()" ng-model="noviStand.sajamId">
+			<option ng-repeat="saj in sajmovi" value="{{saj.id}}">
+				{{saj.naziv}}
+			</option>
+		</select>
+		<br/>
+		<button ng-click="addStand()">Dodaj</button>
+	</form>
+	
+	<br>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Zakupac</th>
+				<th>Povrsina</th>
+				<th>Sajam</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="s in standovi">
+				<td>{{s.zakupac}}</td>
+				<td>{{s.povrsina}}</td>
+				<td>{{s.sajamNaziv}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
