@@ -1,0 +1,50 @@
+<div ng-controller="standoviCtrl">
+	
+	<div class="page-header">
+		<h1>Standovi</h1>
+	</div>
+	
+	<div class="row">
+		<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+			<form>
+				<div class="form-group">
+					<label for="zakupac">Zakupac</label>
+					<input type="text" class="form-control" id="zakupac" ng-model="noviStand.zakupac">
+				</div>
+				<div class="form-group">
+					<label for="povrsina">Povrsina</label>
+					<input type="text" class="form-control" id="povrsina" ng-model="noviStand.povrsina">
+				</div>
+				<div class="form-group">
+					<label for="sajam">Sajam</label>
+					<select id="sajam" class="form-control" ng-change="changeHappened()" ng-model="noviStand.sajamId">
+						<option ng-repeat="saj in sajmovi" value="{{saj.id}}">
+							{{saj.naziv}}
+						</option>
+					</select>
+				</div>
+		
+				<button class="btn btn-primary" ng-click="addStand()">Dodaj</button>
+			</form>
+		</div>
+		
+		<div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Zakupac</th>
+						<th>Povrsina</th>
+						<th>Sajam</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="s in standovi">
+						<td>{{s.zakupac}}</td>
+						<td>{{s.povrsina}}</td>
+						<td>{{s.sajamNaziv}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
