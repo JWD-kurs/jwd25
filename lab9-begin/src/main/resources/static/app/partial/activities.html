@@ -16,7 +16,10 @@
 			</tr>
 			<tr ng-repeat="x in activities">
 				<td>{{x.name}}</td>
-				<td><button ng-click="goToEdit(x.id)">Edit</button></td>
+				<td>
+					<button ng-click="goToEdit(x.id)">Edit</button>
+					<button ng-click="deleteActivity(x.id)">Delete</button>
+				</td>
 			</tr>
 		</table>
 	</div>
