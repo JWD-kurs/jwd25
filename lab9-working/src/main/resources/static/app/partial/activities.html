@@ -1,0 +1,40 @@
+<div ng-controller="activitiesCtrl">
+	
+	<div class="page-header">
+		<h3>Activities</h3>
+	</div>
+	
+	<br>
+	
+	<form class="form-inline">
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" id="name" class="form-control" ng-model="newActivity.name">
+		</div>
+		<button class="btn btn-default" ng-click="addActivity()">Add</button>
+	</form>
+	
+	<br>
+	<div ng-show="gotActivities">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="x in activities">
+					<td>{{x.name}}</td>
+					<td>
+						<button class="btn btn-warning" ng-click="goToEdit(x.id)">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+						<button class="btn btn-danger" ng-click="deleteActivity(x.id)">
+							<span class="glyphicon glyphicon-heart"></span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

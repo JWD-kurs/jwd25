@@ -1,0 +1,75 @@
+<div ng-controller="standoviCtrl">
+	
+	<div class="page-header">
+		<h1>Standovi</h1>
+	</div>
+	
+	<div>
+		<div>
+			<form>
+				<div class="form-group">
+					<label for="zakupac">Zakupac</label>
+					<input type="text" class="form-control" id="zakupac" ng-model="noviStand.zakupac">
+				</div>
+				<div class="form-group">
+					<label for="povrsina">Povrsina</label>
+					<input type="text" class="form-control" id="povrsina" ng-model="noviStand.povrsina">
+				</div>
+				<div class="form-group">
+					<label for="sajam">Sajam</label>
+					<select id="sajam" class="form-control" ng-change="changeHappened()" ng-model="noviStand.sajamId">
+						<option ng-repeat="saj in sajmovi" value="{{saj.id}}">
+							{{saj.naziv}}
+						</option>
+					</select>
+				</div>
+		
+				<button class="btn btn-primary" ng-click="addStand()">Dodaj</button>
+			</form>
+		</div>
+		
+		<form>
+			<div class="form-group">
+				<label for="pzakupac">Zakupac</label>
+				<input class="form-control" type="text" id="pzakupac" ng-model="trazeniStand.zakupac">
+			</div>
+			
+			<div class="form-group">
+				<label for="minp">Minimalna povrsina</label>
+				<input class="form-control" type="text" id="minp" ng-model="trazeniStand.minP">
+			</div>
+			
+			<div class="form-group">
+				<label for="maxp">Maksimalna povrsina</label>
+				<input class="form-control" type="text" id="maxp" ng-model="trazeniStand.maxP">
+			</div>
+		
+			<button ng-click="search()" class="btn btn-default">Pretrazi</button>
+		</form>
+		
+		<div>
+			
+			<div class="btn-group pull-right">
+				<button ng-click="changePage(-1)" ng-disabled="pageNum == 0" class="btn btn-primary">Nazad</button>
+				<button ng-click="changePage(1)" ng-disabled="!(pageNum < totalPages - 1)" class="btn btn-primary">Napred</button>
+			</div>
+			
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Zakupac</th>
+						<th>Povrsina</th>
+						<th>Sajam</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="s in standovi">
+						<td>{{s.zakupac}}</td>
+						<td>{{s.povrsina}}</td>
+						<td>{{s.sajamNaziv}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
