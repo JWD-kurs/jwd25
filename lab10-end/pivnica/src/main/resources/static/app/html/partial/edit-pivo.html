@@ -1,0 +1,30 @@
+<div ng-controller="editPivaCtrl">
+    <form>
+        <div class="form-group">
+			<label for="nazivSP">Naziv</label> <input
+				ng-model="staroPivo.naziv" type="text" class="form-control"
+				id="nazivSP">
+		</div>
+		<div class="form-group">
+			<label for="vrstaSP">Vrsta</label> <input
+				ng-model="staroPivo.vrsta" type="text" class="form-control"
+				id="vrstaSP">
+		</div>
+		<div class="form-group">
+			<label for="procenatSP">Procenat alkohola</label> <input
+				ng-model="staroPivo.procenatAlkohola" type="text" class="form-control"
+				id="procenatSP">
+		</div>
+		<div class="form-group">
+			<label for="IBUSP">IBU</label> <input
+				ng-model="staroPivo.ibu" type="text" class="form-control"
+				id="IBUSP">
+		</div>
+		<div class="form-group">
+			<label for="kolicinaSP">Količina</label> <input
+				ng-model="staroPivo.kolicina" type="text" class="form-control"
+				id="kolicinaSP">
+		</div>
+        <button type="button" class="btn btn-primary" ng-click="izmeni()">Izmeni</button>
+    </form>
+</div>
